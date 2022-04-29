@@ -19,27 +19,19 @@
     D=D-M
     @END
     D;JEQ
-    @R1
+    @R0
     D=M
-    @N
-    A=D+M
-    D=M
-    @MINUS1
+    @POSR0
     D;JLT
-    @MINUS2
+    @NEGR0
     D;JGT
 (SAME)
-    @R1
-    D=M
-    @N
-    A=D+M
-    D=M
     @R0
     D=D-M
-    @MIN
-    D;JLT
     @N
     M=M+1
+    @MIN
+    D;JLT
     @LOOP
     0;JMP
 (END)
@@ -47,28 +39,29 @@
     0;JMP
     
 
-(MINUS1)
-    @R0
-    D=M
-    @SAME
-    D;JLT
+(POSR0)
     @R1
     D=M
     @N
     A=D+M
     D=M
-    @R0
-    M=D
+    @SAME
+    D;JLT
     @N
     M=M+1
     @LOOP
     0;JMP
 
-(MINUS2)
-    @R0
+(NEGR0)
+    @R1
+    D=M
+    @N
+    A=D+M
     D=M
     @SAME
     D;JGT
+    @R0
+    M=D
     @N
     M=M+1
     @LOOP
@@ -82,7 +75,5 @@
     D=M
     @R0
     M=D
-    @N
-    M=M+1
     @LOOP
     0;JMP
