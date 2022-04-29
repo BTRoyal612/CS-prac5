@@ -7,15 +7,16 @@
     @END
     D;JLE
     @N
-    M=1
+    M=0
     @R1
     A=M
     D=M
     @R0
     M=D
+
 (LOOP)
     @N
-    D=M
+    MD=M+1
     @R2
     D=D-M
     @END
@@ -25,21 +26,19 @@
     @N
     A=D+M
     D=M
-    @R4
-    M=D
     @R0
     D=M-D
-    @N
-    M=M+1
     @MIN
     D;JGT
-
 (END)
     @END
     0;JMP
 
 (MIN)
-    @R4
+    @R1
+    D=M
+    @N
+    A=D+M
     D=M
     @R0
     M=D
