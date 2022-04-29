@@ -9,6 +9,8 @@
     D=M
     @R0
     M=D
+    @N
+    M=1
 
 (LOOP)
     @N
@@ -17,6 +19,16 @@
     D=D-M
     @END
     D;JEQ
+    @R1
+    D=M
+    @N
+    A=D+M
+    D=M
+    @MINUS1
+    D;JLT
+    @MINUS2
+    D;JGT
+(SAME)
     @R1
     D=M
     @N
@@ -32,6 +44,34 @@
     0;JMP
 (END)
     @END
+    0;JMP
+    
+
+(MINUS1)
+    @R0
+    D=M
+    @SAME
+    D;JLT
+    @R1
+    D=M
+    @N
+    A=D+M
+    D=M
+    @R0
+    M=D
+    @N
+    M=M+1
+    @LOOP
+    0;JMP
+
+(MINUS2)
+    @R0
+    D=M
+    @SAME
+    D;JGT
+    @N
+    M=M+1
+    @LOOP
     0;JMP
 
 (MIN)
