@@ -28,10 +28,10 @@
 (SAME)
     @R0
     D=D-M
-    @N
-    M=M+1
     @MIN
     D;JLT
+    @N
+    M=M+1
     @LOOP
     0;JMP
 (END)
@@ -75,5 +75,7 @@
     D=M
     @R0
     M=D
+    @N
+    M=M+1
     @LOOP
     0;JMP
