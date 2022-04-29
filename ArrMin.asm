@@ -27,9 +27,9 @@
     A=D+M
     D=M
     @R0
-    D=M-D
+    D=D-M
     @MIN
-    D;JGT
+    D;JLT
 (END)
     @END
     0;JMP
