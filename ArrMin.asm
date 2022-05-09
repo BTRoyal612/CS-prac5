@@ -21,9 +21,9 @@
     D;JEQ
     @R0
     D=M
-    @POSR0
-    D;JLT
     @NEGR0
+    D;JLT
+    @POSR0
     D;JGT
 (SAME)
     @R0
@@ -39,7 +39,7 @@
     0;JMP
     
 
-(POSR0)
+(NEGR0)
     @R1
     D=M
     @N
@@ -52,7 +52,7 @@
     @LOOP
     0;JMP
 
-(NEGR0)
+(POSR0)
     @R1
     D=M
     @N
